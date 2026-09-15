@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Khushi ❤️</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{min-height:100vh;overflow:hidden;font-family:Arial,sans-serif;background:radial-gradient(circle at top,#35124d,#12091c 55%,#050308);color:white}
+.star{position:fixed;width:3px;height:3px;background:white;border-radius:50%;animation:blink 2s infinite alternate}
+@keyframes blink{from{opacity:.2}to{opacity:1}}
+.container{min-height:100vh;display:flex;justify-content:center;align-items:center;padding:20px}
+.card{width:100%;max-width:430px;text-align:center;padding:35px 25px;border-radius:30px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);backdrop-filter:blur(15px);box-shadow:0 0 50px rgba(255,70,150,.18);animation:show 1.5s ease}
+@keyframes show{from{opacity:0;transform:translateY(40px) scale(.9)}to{opacity:1;transform:translateY(0) scale(1)}}
+.bigheart{font-size:70px;animation:heartbeat 1.4s infinite}
+@keyframes heartbeat{0%,100%{transform:scale(1)}50%{transform:scale(1.18)}}
+h1{margin-top:15px;font-size:32px}.name{color:#ff77b7}
+.subtitle{margin-top:12px;color:#ddd;line-height:1.6}
+.start{margin-top:25px;padding:14px 32px;border:none;border-radius:30px;background:linear-gradient(90deg,#ff4f9a,#ff76c4);color:white;font-size:16px;font-weight:bold;cursor:pointer;box-shadow:0 0 25px rgba(255,70,160,.4);transition:.3s}
+.start:hover{transform:scale(1.08)}
+#letter{display:none}.message{margin-top:20px;min-height:150px;color:#f5eaf1;line-height:1.8;font-size:16px}
+.buttons{margin-top:20px}.choice{padding:13px 25px;margin:6px;border-radius:25px;border:none;font-size:15px;cursor:pointer;transition:.25s}
+.yes{background:#ff4f9a;color:white}.no{background:#333;color:white}.choice:hover{transform:scale(1.08)}
+#final{display:none;animation:show 1s ease}.finalheart{font-size:55px}.small{margin-top:12px;color:#bbb;font-size:14px;line-height:1.6}
+.float{position:fixed;bottom:-30px;font-size:20px;pointer-events:none;animation:rise 6s linear forwards}
+@keyframes rise{0%{transform:translateY(0) rotate(0);opacity:0}15%{opacity:1}100%{transform:translateY(-110vh) rotate(360deg);opacity:0}}
+</style>
+</head>
+<body>
+<div class="container"><div class="card">
+<div id="intro">
+<div class="bigheart">💗</div>
+<h1>Hey <span class="name">Khushi</span>...</h1>
+<p class="subtitle">Ek chhoti si cheez banayi hai.<br>Bas ek baar poori dekh lena. 🫠</p>
+<button class="start" onclick="openLetter()">Open it 💌</button>
+</div>
+
+<div id="letter">
+<div class="bigheart">💌</div>
+<h1>For <span class="name">Khushi</span></h1>
+<div class="message" id="typing"></div>
+<div class="buttons" id="buttons" style="display:none;">
+<button class="choice yes" onclick="yesClicked()">Maybe ❤️</button>
+<button class="choice no" onclick="noClicked()">No 🥲</button>
+</div>
+</div>
+
+<div id="final">
+<div class="finalheart">🫶</div>
+<h1>It's okay, Khushi.</h1>
+<p class="subtitle">Tumhara answer jo bhi ho,<br>main uski respect karta hoon.</p>
+<p class="small">Bas ye page banane ka mann tha...<br>isliye bana diya. ❤️</p>
+</div>
+</div></div>
+
+<script>
+for(let i=0;i<80;i++){
+ let star=document.createElement("div");
+ star.className="star";
+ star.style.left=Math.random()*100+"vw";
+ star.style.top=Math.random()*100+"vh";
+ star.style.animationDelay=Math.random()*2+"s";
+ document.body.appendChild(star);
+}
+
+function openLetter(){
+ document.getElementById("intro").style.display="none";
+ document.getElementById("letter").style.display="block";
+ typeText();
+}
+
+let text="Khushi, pata hai... main tumse kuch expect karne ke liye ye nahi bana raha. ❤️\n\nBas meri feelings genuine thi, aur shayad main unhe thoda alag tareeke se kehna chahta tha.\n\nTumne jo answer diya, main uski respect karta hoon. Bas ek baar ye kehna zaroori laga ki tum mere liye genuinely special ho. 🫠";
+let index=0;
+
+function typeText(){
+ if(index<text.length){
+  let char=text[index];
+  document.getElementById("typing").innerHTML += char==="\n"?"<br>":char;
+  index++;
+  setTimeout(typeText,35);
+ }else{
+  document.getElementById("buttons").style.display="block";
+ }
+}
+
+function yesClicked(){
+ document.getElementById("buttons").style.display="none";
+ document.getElementById("typing").innerHTML="Bas itna sa chance mil jaye... baaki main cheezein naturally hone dunga. ❤️";
+ heartExplosion();
+}
+
+function noClicked(){
+ document.getElementById("letter").style.display="none";
+ document.getElementById("final").style.display="block";
+}
+
+function heartExplosion(){
+ for(let i=0;i<25;i++){
+  let heart=document.createElement("div");
+  heart.className="float";
+  heart.innerHTML=["❤️","💗","💕","💖","🫶"][Math.floor(Math.random()*5)];
+  heart.style.left=Math.random()*100+"vw";
+  heart.style.animationDuration=(3+Math.random()*3)+"s";
+  document.body.appendChild(heart);
+  setTimeout(()=>heart.remove(),6000);
+ }
+}
+
+setInterval(()=>{
+ let heart=document.createElement("div");
+ heart.className="float";
+ heart.innerHTML="♡";
+ heart.style.left=Math.random()*100+"vw";
+ heart.style.animationDuration=(5+Math.random()*3)+"s";
+ document.body.appendChild(heart);
+ setTimeout(()=>heart.remove(),8000);
+},800);
+</script>
+</body>
+</html>
